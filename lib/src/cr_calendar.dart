@@ -88,6 +88,11 @@ final class CrCalendarController extends ChangeNotifier {
   /// Events visibility.
   ValueNotifier<bool> get isShowingEvents => _doShowEvents;
 
+  void clearEvents() {
+    events?.clear();
+    _redrawCalendar();
+  }
+
   /// Add list of events.
   void addEvents(List<CalendarEventModel> list) {
     (events ??= []).addAll(list);
