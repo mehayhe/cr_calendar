@@ -183,14 +183,15 @@ class MonthItemState extends State<MonthItem> {
     if ((constraint.maxHeight / _weekCount) > itemWidth) {
       itemHeight = constraint.maxHeight / _weekCount;
     } else {
-      final isAdaptive =
-          DatePickerSettings.of(context)?.landscapeDaysResizeMode ==
-              LandscapeDaysResizeMode.adaptive;
-      if (isAdaptive) {
+      // final isAdaptive =
+      //     DatePickerSettings.of(context)?.landscapeDaysResizeMode ==
+      //         LandscapeDaysResizeMode.adaptive;
+      // if (isAdaptive) {
         itemHeight = constraint.maxHeight / _weekCount;
-      } else {
-        itemHeight = itemWidth;
-      }
+      // } else {
+      //   itemHeight = itemWidth;
+      // }
+      // print('height: $itemHeight');
     }
     return Size(itemWidth, itemHeight);
   }

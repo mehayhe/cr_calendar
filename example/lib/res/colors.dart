@@ -1,7 +1,8 @@
 import 'package:cr_calendar_example/widgets/event_widget.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-const violet = Color(0xff7F51F5);
+const violet = Colors.grey; // Color(0xff7F51F5);
 
 /// Colors for [EventWidget].
 const eventColors = [

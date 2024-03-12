@@ -19,7 +19,7 @@ class DayItemWidget extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            padding: const EdgeInsets.only(top: 4),
+            padding: const EdgeInsets.only(top: 2),
             alignment: Alignment.topCenter,
             child: Container(
               height: 18,

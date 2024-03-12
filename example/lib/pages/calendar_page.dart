@@ -64,56 +64,59 @@ class _CalendarPageState extends State<CalendarPage> {
         onPressed: _addEvent,
         child: const Icon(Icons.add),
       ),
-      body: Column(
-        children: [
-          /// Calendar control row.
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconButton(
-                icon: const Icon(Icons.arrow_back_ios),
-                onPressed: () {
-                  _changeCalendarPage(showNext: false);
-                },
-              ),
-              ValueListenableBuilder(
-                valueListenable: _monthNameNotifier,
-                builder: (ctx, value, child) => Text(
-                  value,
-                  style: const TextStyle(
-                      fontSize: 16, color: violet, fontWeight: FontWeight.w600),
+      body: Container(
+        color: Colors.white,
+        child: Column(
+          children: [
+            /// Calendar control row.
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.arrow_back_ios),
+                  onPressed: () {
+                    _changeCalendarPage(showNext: false);
+                  },
                 ),
-              ),
-              IconButton(
-                icon: const Icon(Icons.arrow_forward_ios),
-                onPressed: () {
-                  _changeCalendarPage(showNext: true);
-                },
-              ),
-            ],
-          ),
-
-          /// Calendar view.
-          Expanded(
-            child: CrCalendar(
-              firstDayOfWeek: WeekDay.monday,
-              eventsTopPadding: 32,
-              initialDate: _currentDate,
-              maxEventLines: 3,
-              controller: _calendarController,
-              forceSixWeek: true,
-              dayItemBuilder: (builderArgument) =>
-                  DayItemWidget(properties: builderArgument),
-              weekDaysBuilder: (day) => WeekDaysWidget(day: day),
-              eventBuilder: (drawer) => EventWidget(drawer: drawer),
-              onDayClicked: _showDayEventsInModalSheet,
-              minDate: DateTime.now().subtract(const Duration(days: 1000)),
-              maxDate: DateTime.now().add(const Duration(days: 180)),
-              // weeksToShow: [0,1,2].toList(),
-              //localizedWeekDaysBuilder: (weekDay) => LocalizedWeekDaysWidget(weekDay: weekDay),
+                ValueListenableBuilder(
+                  valueListenable: _monthNameNotifier,
+                  builder: (ctx, value, child) => Text(
+                    value,
+                    style: const TextStyle(
+                        fontSize: 16, color: violet, fontWeight: FontWeight.w600),
+                  ),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.arrow_forward_ios),
+                  onPressed: () {
+                    _changeCalendarPage(showNext: true);
+                  },
+                ),
+              ],
             ),
-          ),
-        ],
+
+            /// Calendar view.
+            Expanded(
+              child: CrCalendar(
+                firstDayOfWeek: WeekDay.sunday,
+                eventsTopPadding: 26,
+                initialDate: _currentDate,
+                maxEventLines: 3,
+                controller: _calendarController,
+                forceSixWeek: true,
+                dayItemBuilder: (builderArgument) =>
+                    DayItemWidget(properties: builderArgument),
+                weekDaysBuilder: (day) => WeekDaysWidget(day: day),
+                eventBuilder: (drawer) => EventWidget(drawer: drawer),
+                onDayClicked: _showDayEventsInModalSheet,
+                minDate: DateTime.now().subtract(const Duration(days: 1000)),
+                maxDate: DateTime.now().add(const Duration(days: 180)),
+                // weeksToShow: [0,1,2].toList(),
+                //localizedWeekDaysBuilder: (weekDay) => LocalizedWeekDaysWidget(weekDay: weekDay),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
