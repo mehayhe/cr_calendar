@@ -1,7 +1,7 @@
 final class Contract {
   static const kLinesPadding = 2;
   static const kDayItemTopPaddingCoef = 5;
-  static const kDistanceBetweenEventsCoef = 30;
+  static const kDistanceBetweenEventsCoef = 40;
   static const kTabletAspectRatioW = 3;
   static const kTabletAspectRatioH = 4;
 
