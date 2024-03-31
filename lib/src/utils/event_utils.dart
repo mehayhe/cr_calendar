@@ -81,8 +81,8 @@ EventProperties? _mapSimpleEventToDrawerOrNull(
     event.end.minute,
   ).toJiffy();
 
-  if (jEnd.isBefore(begin, unit: Unit.day) ||
-      jBegin.isAfter(end, unit: Unit.day)) {
+  if (jEnd.isBefore(begin, unit: Unit.hour) ||
+      jBegin.isAfter(end, unit: Unit.hour)) {
     return null;
   }
 

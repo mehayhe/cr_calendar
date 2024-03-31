@@ -158,10 +158,17 @@ class _CalendarPageState extends State<CalendarPage> {
       events: [
         CalendarEventModel(
           name: '1 event',
-          begin: DateTime(now.year, now.month, (now.day).clamp(1, 28)),
-          end: DateTime(now.year, now.month, (now.day).clamp(1, 28)),
+          begin: DateTime(2024, 3, 30),
+          end: DateTime(2024, 3, 30),
           eventColor: eventColors[0],
         ),
+
+        // CalendarEventModel(
+        //   name: '1 event',
+        //   begin: DateTime(2024, 3, 28),
+        //   end: DateTime(2024, 3, 28),
+        //   eventColor: eventColors[0],
+        // ),
         CalendarEventModel(
           name: '2 event',
           begin: DateTime(now.year, now.month - 1, (now.day - 2).clamp(1, 28)),
